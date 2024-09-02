@@ -1,4 +1,4 @@
-USE InfinitMarketDB
+USE WilkiDB
 INSERT INTO [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES ('85f9651e-e780-4bbe-8ff4-48dd0ab285e6', 'elira.gashi@outlook.com', 'ELIRA.GASHI@OUTLOOK.COM', 'elira.gashi@outlook.com', 'ELIRA.GASHI@OUTLOOK.COM', 0, 'AQAAAAEAACcQAAAAEFKLd4c+YMtP3gVNVmoGI5lp1VplNgb6MJ3wEoILt20uJbX45ljhktSOaeHNobG4Hg==', 'DLZQ6P5EVJ7YOMMVHWWRPUB3RDOCBEYQ', '7819abb7-3bc8-4c6a-8e5c-7f872bb9c904', NULL, 0, 0, NULL, 1, 0);
 INSERT INTO [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES ('b10553ea-caa3-4e04-9ff4-68ea2314a428', 'bekim.nikqi@yahoo.com', 'BEKIM.NIKQI@YAHOO.COM', 'bekim.nikqi@yahoo.com', 'BEKIM.NIKQI@YAHOO.COM', 0, 'AQAAAAEAACcQAAAAEA5jBTMAWOuKc41DRtm+87wfi28FZ9F80wM9y9qFOq5Bl692sO5osc2n2Mb44vdxmg==', 'YV5EWDOWHYNNW4V4T6HZXVTU7JE4ZFC3', '4ddb46e3-a443-447b-af5f-a6fc5f5eecc5', NULL, 0, 0, NULL, 1, 0);
 INSERT INTO [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES ('b4899bb9-0db4-4be1-a8ac-1091395f715c', 'fjolla.berisha@hotmail.com', 'FJOLLA.BERISHA@HOTMAIL.COM', 'fjolla.berisha@hotmail.com', 'FJOLLA.BERISHA@HOTMAIL.COM', 0, 'AQAAAAEAACcQAAAAEH3bTvlNlE8YdNJi1ZziTxDvRJL5KPPs3yBMC0pwvbLrVH/LFmuT1bfb9gDBU8x+fw==', 'JLCZXWGDHPUUZLPWD26F7VWUCWLBN6J4', 'cca5c1eb-1f8c-4fb7-87a8-9e2363daeaca', NULL, 0, 0, NULL, 1, 0);
@@ -542,13 +542,13 @@ INSERT INTO [dbo].[ZbritjaQmimitProduktit] ([ZbritjaID], [ProduktiId], [QmimiPaZ
 INSERT INTO [dbo].[ZbritjaQmimitProduktit] ([ZbritjaID], [ProduktiId], [QmimiPaZbritjeProduktit], [QmimiMeZbritjeProduktit], [DataZbritjes], [DataSkadimit]) VALUES (17, 66, 339.5, 325.92, '2024-05-30T23:53:13.348Z', '2024-08-11T00:00:00.000Z');
 SET IDENTITY_INSERT [dbo].[ZbritjaQmimitProduktit] OFF;
 UPDATE [dbo].[TeDhenatBiznesit]
-SET [EmriIBiznesit] = 'InfinitMarket Online SH.P.K.',
-    [ShkurtesaEmritBiznesit] = 'INF',
+SET [EmriIBiznesit] = 'Wilki Online SH.P.K.',
+    [ShkurtesaEmritBiznesit] = 'WLK',
     [NUI] = 810300575,
     [NF] = 600043674,
     [NRTVSH] = 330034372,
-    [Adresa] = 'Agim Bajrami, Kaçanik, Kosove 71000',
+    [Adresa] = '12 Qershori, Ferizaj, Kosove 70000',
     [NrKontaktit] = '+38343123123',
-    [Email] = 'info@infinitmarket.com',
+    [Email] = 'info@Wilki.com',
     [Logo] = 'bb08a6a4f4834f3f8109d1666908ba3a.png'
 WHERE [IDTeDhenatBiznesit] = 1;
