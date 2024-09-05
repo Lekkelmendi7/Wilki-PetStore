@@ -1,0 +1,73 @@
+﻿@page
+@model LoginModel
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Log in";
+    if (SignInManager.IsSignedIn(User))
+    {
+        <script>
+            window.location = "/Identity/Account/Manage/"
+        </script>
+    }
+}
+
+<div class="auth-wrapper">
+    <div class="auth-content">
+        <div class="auth-bg">
+            <span class="r"></span>
+            <span class="r s"></span>
+            <span class="r s"></span>
+            <span class="r"></span>
+        </div>
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="mb-4">
+                        <img class="logoImgLoginReg" src="~/profile_crop.png" />
+                </div>
+                <h5 class="mb-4">Sign in to your account</h5>
+                <div class="mb-4">
+                    @{
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div class="text-center">
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins!)
+                                    {
+                                        <button type="submit" class="btn btn-primary mb-2" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                </div>
+
+                <hr />
+
+                <form id="account" method="post" class="mt-5">
+                    <div class="input-group mb-3">
+
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        <input asp-for="Input.Email" type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="input-group mb-4">
+
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        <input asp-for="Input.Password" type="password" class="form-control" placeholder="password">
+                    </div>
+                    <button id="login-submit" type="submit" class="btn btn-primary shadow-2 mb-4">Login</button>
+                    <p class="mb-2 text-muted">Forgot password? <a href="ForgotPassword">Reset</a></p>
+                    <p class="mb-0 text-muted">Don’t have an account? <a href="Register">Signup</a></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Required Js -->
+<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

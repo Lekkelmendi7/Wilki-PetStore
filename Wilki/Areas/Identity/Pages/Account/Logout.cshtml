@@ -1,0 +1,8 @@
+﻿@page
+@model LogoutModel
+
+@inject SignInManager<IdentityUser> SignInManager
+@{
+    ViewData["Title"] = "Log out";
+    await SignInManager.SignOutAsync();
+}
