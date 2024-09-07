@@ -32,7 +32,8 @@ namespace Wilki.Data
         public DbSet<ListaEDeshirave> ListaEDeshirave {  get; set; }
         public DbSet<ZbritjaQmimitProduktit> ZbritjaQmimitProduktit { get; set; }
         public DbSet<AdminLogs> AdminLogs { get; set; }
-        public DbSet<Building> Building { get; set; }
-        public DbSet<Renovation> Renovation { get; set; }
+        public DbSet<Planet> Planet { get; set; }
+        public DbSet<Satellite> Satellite { get; set; }
+
     }
 }
