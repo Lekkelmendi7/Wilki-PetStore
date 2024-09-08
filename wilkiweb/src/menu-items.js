@@ -150,41 +150,6 @@ const menuItems = {
           icon: 'feather icon-home',
           children: [
             {
-              id: 'Building',
-              title: 'Building',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/building'
-            },
-            {
-              id: 'Renovation',
-              title: 'Renovation',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/renovation'
-            },
-            {
-              id: 'Employee',
-              title: 'Employee',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/employee'
-            },
-            {
-              id: 'Contract',
-              title: 'Contract',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/contract'
-            },{
-              id: 'Group',
-              title: 'Group',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/group'
-            },
-            {
-              id: 'Member',
-              title: 'Member',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/member'
-            },
-            {
               id: 'Planet',
               title: 'Planet',
               type: 'item',
@@ -196,66 +161,7 @@ const menuItems = {
               type: 'item',
               url: '/admin/mbrojtjaeprojektit/satellite'
             },
-            {
-              id: 'Interview',
-              title: 'Interview',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/interview'
-            },
-            {
-              id: 'InterviewNotes',
-              title: 'InterviewNotes',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/interviewNotes'
-            },
-            {
-              id: 'Director',
-              title: 'Director',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/director'
-            },
-            {
-              id: 'Movie',
-              title: 'Movie',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/movie'
-            },
-            {
-              id: 'Banka55982',
-              title: 'Banka55982',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/banka55982'
-            },
-            {
-              id: 'Personi55982',
-              title: 'Personi55982',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/personi55982'
-            },
-            {
-              id: 'Hoteli',
-              title: 'Hoteli',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/hoteli'
-            },
-            {
-              id: 'Klienti',
-              title: 'Klienti',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/klienti'
-            },
-            {
-              id: 'Planet212255982',
-              title: 'Planet212255982',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/planet212255982'
-            },
-            {
-              id: 'Satellite212255982',
-              title: 'Satellite212255982',
-              type: 'item',
-              url: '/admin/mbrojtjaeprojektit/satellite212255982'
-            }
+            
             
           ]
         },

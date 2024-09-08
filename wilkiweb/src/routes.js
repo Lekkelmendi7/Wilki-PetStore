@@ -194,36 +194,6 @@ const routes = [
       
       {
         exact: true,
-        path: '/admin/mbrojtjaeprojektit/building',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Building'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/renovation',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Renovation'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/employee',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Employee'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/contract',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Contract'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/group',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Group'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/member',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Member'))
-      },
-      {
-        exact: true,
         path: '/admin/mbrojtjaeprojektit/planet',
         element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Planet'))
       },
@@ -231,56 +201,6 @@ const routes = [
         exact: true,
         path: '/admin/mbrojtjaeprojektit/satellite',
         element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Satellite'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/interview',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Interview'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/interviewnotes',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/InterviewNotes'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/director',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Director'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/movie',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Movie'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/banka55982',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Banka55982'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/personi55982',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Personi55982'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/hoteli',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Hoteli'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/klienti',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Klienti'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/planet212255982',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Planet212255982'))
-      },
-      {
-        exact: true,
-        path: '/admin/mbrojtjaeprojektit/satellite212255982',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Satellite212255982'))
       },
 
       {
