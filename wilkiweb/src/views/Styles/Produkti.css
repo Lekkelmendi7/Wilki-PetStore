@@ -1,0 +1,299 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.teDhenatProduktit h1 {
+  font-size: 1em;
+}
+
+.emriProd {
+  text-align: left;
+}
+.butonatDiv {
+  display: flex;
+  gap: 7px;
+}
+.ContainerTeDhenat {
+  margin-left: 2em;
+}
+
+.teDhenatProduktit td {
+  border-bottom: 2px solid #dddddd;
+}
+
+table {
+  width: 90%;
+}
+
+.foto {
+  width: 27.5em;
+}
+
+.foto .swiper-slide img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
+
+.produkti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+  font-size: 1em;
+  gap: 1.3em;
+  border: none;
+  padding: 5em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #d3d3d3;
+  background-color: white;
+  flex-direction: column;
+  width: 90%;
+}
+
+.detajet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.blerja {
+  margin-top: 2em;
+  font-size: 10pt;
+}
+
+.button {
+  margin-top: 1.3em;
+}
+
+.pershkrimi {
+  width: 90%;
+  font-size: 0.8em;
+}
+
+.pershkrimi h2 {
+  font-size: 1.4em;
+}
+
+.mesazhiZbritjes {
+  margin-top: 1em;
+  font-size: 8pt;
+  width: 60%;
+}
+
+.navKerkimi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.searchBar {
+  width: 23em;
+  padding: 1em 2em;
+  border: 1px solid #d3d3d3;
+  border-radius: 5em;
+}
+
+.button-kategoria {
+  margin: 2em;
+}
+
+.button-kategoria span {
+  font-size: 15pt;
+}
+
+.button-edit-produktin {
+  width: 5em;
+  padding: 1em;
+}
+
+td a {
+  color: black;
+}
+
+td a:hover {
+  color: #01df93;
+}
+
+.searchBarForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigimiFaqev {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.faqjaAktive {
+  color: white;
+  border: none;
+  padding: 0.6em;
+  border-radius: 100px;
+  background-color: #01df93;
+}
+
+.faqjaAktive:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #01df93;
+}
+
+.faqjaTjeter {
+  color: black;
+  border: none;
+  padding: 0.6em;
+  border-radius: 100px;
+}
+
+.faqjaTjeter:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #01df93;
+}
+
+.button-shporta {
+  width: 5em;
+  padding: 1em;
+}
+
+.footer {
+  width: 100%;
+}
+
+.qmimiPaZbritje {
+  text-decoration: line-through;
+  color: #777;
+}
+
+/* Vleresimi Start */
+
+.vleresimetEProduktit {
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+.vleresimiTotal{
+  display: flex;
+  justify-content: space-between;
+}
+
+.yllatVleresimi{
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+  justify-content: center;
+}
+
+.vleresimiProduktit {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.klienti {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.yllat {
+  color: orange;
+  margin-bottom: 10px;
+}
+
+.yll {
+  color: #ffd700;
+  font-size: 1.5rem;
+}
+.review {
+  margin-bottom: 10px;
+}
+
+.vleresimiMesatar {
+  font-size: 18px;
+  font-style: italic;
+  color: #666;
+}
+
+
+/* Vleresimi Mbarim */
+
+@media (min-width: 1025px) {
+  .button-kategoria {
+    width: 10em;
+  }
+
+  .dropdown-content-kategoria {
+    margin: 0.5em;
+    margin-left: 0.1em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navKerkimi {
+    gap: 1em;
+  }
+
+  .button {
+    margin: 0;
+    width: 10em;
+  }
+  .button-kategoria {
+    margin: 0.3em;
+  }
+  .searchBar {
+    width: 15em;
+  }
+  .dropdown-content-kategoria {
+    margin: -0.3em;
+  }
+
+  .produkti {
+    width: 100%;
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .detajet {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .pershkrimi {
+    width: 90%;
+  }
+
+  .teDhenatProduktit h1 {
+    font-size: 12pt;
+  }
+
+  table {
+    width: 100%;
+  }
+  .mesazhiZbritjes {
+    width: 90%;
+  }
+
+  .foto {
+    width: 23em;
+  }
+}
