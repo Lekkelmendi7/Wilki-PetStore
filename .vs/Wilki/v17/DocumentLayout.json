@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\GitHub\\Wilki\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Documents\\GitHub\\Wilki\\Wilki\\Migrations\\20240907161740_Mbrojtja e projektit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Wilki\\Migrations\\20240907161740_Mbrojtja e projektit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{063BE31F-0958-413B-8702-EBFAD2063811}|Wilki\\Wilki.csproj|c:\\users\\admin\\documents\\github\\wilki\\wilki\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{063BE31F-0958-413B-8702-EBFAD2063811}|Wilki\\Wilki.csproj|solutionrelative:wilki\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{063BE31F-0958-413B-8702-EBFAD2063811}|Wilki\\Wilki.csproj|c:\\users\\admin\\documents\\github\\wilki\\wilki\\migrations\\20240907161740_mbrojtja e projektit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{063BE31F-0958-413B-8702-EBFAD2063811}|Wilki\\Wilki.csproj|solutionrelative:wilki\\migrations\\20240907161740_mbrojtja e projektit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{063BE31F-0958-413B-8702-EBFAD2063811}|Wilki\\Wilki.csproj|c:\\users\\admin\\documents\\github\\wilki\\wilki\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "20240907161740_Mbrojtja e projektit.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\Wilki\\Wilki\\Migrations\\20240907161740_Mbrojtja e projektit.cs",
               "RelativeDocumentMoniker": "Wilki\\Migrations\\20240907161740_Mbrojtja e projektit.cs",
@@ -63,8 +63,7 @@
               "RelativeToolTip": "Wilki\\Controllers\\API\\MbrojtjaEProjektit\\SatelliteController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T16:16:36.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T16:16:36.392Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "Wilki\\Controllers\\API\\MbrojtjaEProjektit\\PlanetController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T16:16:32.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T16:16:32.394Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "Wilki\\Models\\MbrojtjaEProjektit\\Satellite.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T16:16:16.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T16:16:16.014Z"
             },
             {
               "$type": "Document",
@@ -102,18 +99,17 @@
               "RelativeToolTip": "Wilki\\Models\\MbrojtjaEProjektit\\Planet.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T16:16:13.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T16:16:13.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ApplicationDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\Wilki\\Wilki\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Wilki\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\Wilki\\Wilki\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "RelativeToolTip": "Wilki\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ViewState": "AQIAAJ8BAAAAAAAAAAAcwLIBAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALIBAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-07T16:13:11.933Z",
               "EditorCaption": ""
@@ -128,8 +124,7 @@
               "RelativeToolTip": "Wilki\\Data\\ApplicationDbContext.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAgwCMAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T16:04:04.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T16:04:04.628Z"
             }
           ]
         }
