@@ -161,40 +161,44 @@ INSERT INTO [dbo].[Porosit] ([IdPorosia], [Totali18TVSH], [Totali8TVSH], [DataPo
 SET IDENTITY_INSERT [dbo].[Porosit] OFF;
 SET IDENTITY_INSERT [dbo].[Produkti] ON;
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (1, 'Kafaz per Macake, i madh', 'Ky kafaz eshte i bere nga materiale cilesore dhe eshte i pershtatshem per macake te medhenj. Ka dyer te sigurta dhe hapesire te bollshme per levizje.', 'kafaz_macake_madh.webp', 3, 4, 'false');
+VALUES (1, 'Kafaz per Macake, i madh', 'Ky kafaz eshte i bere nga materiale cilesore dhe eshte i pershtatshem per macake te medhenj. Ka dyer te sigurta dhe hapesire te bollshme per levizje.', 'b0062dbd32ae42bf99bb93a185278eca.webp', 11, 8, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (2, 'Kosh per Uje per Qene, 2L', 'Kosh per uje i bere nga plastike e qendrueshme, i pershtatshem per qen te vegjel dhe te mesem. Lehte per t’u pastruar dhe mbajtes i qendrueshem.', 'kosh_uji_qen.webp', 5, 4, 'false');
+VALUES (2, 'Kosh per Uje per Qene, 2L', 'Kosh per uje i bere nga plastike e qendrueshme, i pershtatshem per qen te vegjel dhe te mesem. Lehte per t’u pastruar dhe mbajtes i qendrueshem.', '275de475b1b44e05accc76b1a20ab2cf.jpg', 26, 14, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (3, 'Loder per Macake me Vale, e ngjyrosur', 'Loder e bere nga materiale te sigurt per macake, ndihmon ne stimulimin e aktivitetit fizik dhe shpirteror te macave. E ngjyrosur dhe e qendrueshme.', 'loder_macake.webp', 6, 4, 'false');
+VALUES (3, 'Loder per Macake me Vale, e ngjyrosur', 'Loder e bere nga materiale te sigurt per macake, ndihmon ne stimulimin e aktivitetit fizik dhe shpirteror te macave. E ngjyrosur dhe e qendrueshme.', '1abacf1c860c40d181be49de9df99cd9.webp', 24, 3, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (4, 'Qese per Peshqit e Akvariumit, 10L', 'Qese e vecante per transportimin e peshqve te akvariumit, e bere nga plastike e forte dhe e sigurt per ambientin e ujit.', 'qese_peshq.webp', 7, 4, 'false');
+VALUES (4, 'Qese per Peshqit e Akvariumit', 'Qese e vecante per transportimin e peshqve te akvariumit, e bere nga plastike e forte dhe e sigurt per ambientin e ujit.', 'a143765f9c9a411cb7f95c5048f51dcf.jpg', 20, 12, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (5, 'Rrobat per Qene, e vogel', 'Rrobat e rehatshme per qen te vegjel, te bera nga materiale te buta dhe te qendrueshme. Te pershtatshme per cdo sezon.', 'robat_qen.webp', 8, 4, 'false');
+VALUES (5, 'Rrobat per Qene, e vogel', 'Rrobat e rehatshme per qen te vegjel, te bera nga materiale te buta dhe te qendrueshme. Te pershtatshme per cdo sezon.', '469832e6cf4d402e93802cadc33d0524.jpg', 18, 20, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (6, 'Masa per Kafshe, e rregullueshme', 'Masa e rregullueshme per kafshe, e pershtatshme per kuzhine ose per zonen e kujdesit. Ka nje siperfaqe te lehte per t’u pastruar dhe eshte e qendrueshme.', 'masa_kafshe.webp', 9, 4, 'false');
+VALUES (6, 'Tepihe per Kafshe, e rregullueshme', 'Tepiha e rregullueshme per kafshe, e pershtatshme per kuzhine ose per zonen e kujdesit. Ka nje siperfaqe te lehte per t’u pastruar dhe eshte e qendrueshme.', 'bc89c5e3781947538045b5ab52f6c6a5.webp', 19, 18, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (7, 'Mauspad per Te Huajt, e madhe', 'Mauspad i madh, i bere nga material i qendrueshem, i pershtatshem per perdorim te zakonshem dhe per nje ambient pune te qete.', 'mauspad_tehuaj.webp', 10, 4, 'false');
+VALUES (7, 'Loder e rregullueshme per Qene', 'Loder e rregullueshme e bere nga materiale te qendrueshme dhe te sigurta per qen. Ndihmon ne stimulimin e aktivitetit dhe argetimit.', 'd7dd79aa8f6443e586923bd633582341.jpg', 23, 3, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (8, 'Senduk per Te Huajt, i zi', 'Senduk i forte dhe i qendrueshem, i pershtatshem per ruajtjen e lodrave dhe aksesoreve per kafshet shtepiake.', 'senduk_tehuaj.webp', 11, 4, 'false');
+VALUES (8, 'Jastek per Macake, e vogel', 'Jastek i bute dhe e rehatshme per macake, e bere nga materiale te cilesise se larte dhe e pershtatshme per perdorim te perditshem.', 'a91ff026bac24f7ea72395a5d573cfe7.webp', 14, 4, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (9, 'Kufje per Te Huajt, pa kabell', 'Kufje wireless te cilesise se larte, te pershtatshme per perdorim ne ambiente te ndryshme.', 'kufje_tehuaj.webp', 12, 4, 'false');
+VALUES (9, 'Shkalle per Qene, e lehte', 'Shkalle e lehte dhe e qendrueshme per qen, e ndihmon kafshen te arrije ne vende te larta si divani apo krevat.', '5bfa592fd8b540dda85b91caac31f760.webp', 15, 11, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (10, 'Loder e rregullueshme per Qene', 'Loder e rregullueshme e bere nga materiale te qendrueshme dhe te sigurta per qen. Ndihmon ne stimulimin e aktivitetit dhe argetimit.', 'loder_qen.webp', 13, 4, 'false');
+VALUES (10, 'Ushqim i plote per mace', 'Ushqim i pasur me proteina dhe vlera ushqyese per mace te rritura. Mban shendetin e pergjithshem te macese.', '7fe5368be7f640319209e214de6e4227.webp', 5, 2, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (11, 'Kushinella per Macake, e vogel', 'Kushinella e bute dhe e rehatshme per macake, e bere nga materiale te cilesise se larte dhe e pershtatshme per perdorim te perditshem.', 'kushinella_macake.webp', 14, 4, 'false');
+VALUES (11, 'Ushqim per kotele', 'Ushqim i veçante per kotele, i pasur me vitamina dhe minerale te nevojshme per rritje te shendetshme.', '552fc8a53c8843609581b09ecee9cc3c.avif', 3, 2, 'false');
 
 INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
-VALUES (12, 'Shkalle per Qene, e lehte', 'Shkalle e lehte dhe e qendrueshme per qen, e ndihmon kafshen te arrije ne vende te larta si divani apo krevat.', 'skalle_qen.webp', 15, 4, 'false');
+VALUES (12, 'Ushqim i plote per qen te rritur', 'Ushqim i balancuar per qen te rritur, pasur me proteina dhe vlera ushqyese per energji dhe vitalitet.', 'bd6d55620a044981b8b810cd9eaaba87.avif', 4, 1, 'false');
+
+INSERT INTO [dbo].[Produkti] ([ProduktiId], [EmriProduktit], [Pershkrimi], [FotoProduktit], [KompaniaId], [KategoriaId], [isDeleted]) 
+VALUES (13, 'Ushqim per kelysh qen', 'Ushqim per kelysh qen, me perberes natyral per rritje dhe zhvillim optimal.', 'b26fb94408eb4d788560993a63b3f661.png', 6, 1, 'false');
+
 SET IDENTITY_INSERT [dbo].[Produkti] OFF;
 SET IDENTITY_INSERT [dbo].[Shporta] ON;
 INSERT INTO [dbo].[Shporta] ([ShportaID], [PerdoruesiID], [TotaliProdukteveNeShporte], [DataEFunditEPerditesimit], [TotProd18TVSH], [TotProd8TVSH], [Totali18TVSH], [Totali8TVSH], [KodiZbritjesID], [AdresaPorosisID]) VALUES (4, 4, 1, '2024-05-20T23:40:13.195Z', 1, 0, 29.5, 0, 'NukKaZbritje', 4);
@@ -221,16 +225,8 @@ INSERT INTO [dbo].[ListaEDeshirave] ([ListaEDeshiraveID], [ProduktiID], [Klienti
 SET IDENTITY_INSERT [dbo].[ListaEDeshirave] OFF;
 SET IDENTITY_INSERT [dbo].[SliderOfertat] ON;
 INSERT INTO [dbo].[SliderOfertat] ([SliderOfertatID], [LinkuOfertes], [DataFillimitOfertes], [DataMbarimitOfertes], [FotoOferta], [isDeleted]) 
-VALUES (1, '/produktet/kompania/PetSuppliesCo', '2024-05-21T00:00:00.000Z', '2024-08-20T00:00:00.000Z', 'kafaz_macake_madh.webp', 'false');
+VALUES (1, '/produktet/kompania/Whiskas', '2024-05-21T00:00:00.000Z', '2024-08-20T00:00:00.000Z', 'e411337f821946b394e2244372e09057.png', 'false');
 
-INSERT INTO [dbo].[SliderOfertat] ([SliderOfertatID], [LinkuOfertes], [DataFillimitOfertes], [DataMbarimitOfertes], [FotoOferta], [isDeleted]) 
-VALUES (2, '/produktet/kategoria/LodratPërKafshë', '2024-05-21T00:00:00.000Z', '2024-09-14T00:00:00.000Z', 'loder_macake.webp', 'false');
-
-INSERT INTO [dbo].[SliderOfertat] ([SliderOfertatID], [LinkuOfertes], [DataFillimitOfertes], [DataMbarimitOfertes], [FotoOferta], [isDeleted]) 
-VALUES (3, '/produktet/kompania/PetWorld', '2024-05-21T00:00:00.000Z', '2024-09-17T00:00:00.000Z', 'qese_peshq.webp', 'false');
-
-INSERT INTO [dbo].[SliderOfertat] ([SliderOfertatID], [LinkuOfertes], [DataFillimitOfertes], [DataMbarimitOfertes], [FotoOferta], [isDeleted]) 
-VALUES (4, '/produktet/kategoria/MasatPërKafshë', '2024-05-21T00:00:00.000Z', '2024-09-03T00:00:00.000Z', 'masa_kafshe.webp', 'false');
 SET IDENTITY_INSERT [dbo].[SliderOfertat] OFF;
 SET IDENTITY_INSERT [dbo].[TeDhenatEPorosis] ON;
 INSERT INTO [dbo].[TeDhenatEPorosis] ([IdDetajet], [SasiaPorositur], [IdPorosia], [IdProdukti], [QmimiProduktit]) VALUES (1, 1, 1, 83, 33.5);
