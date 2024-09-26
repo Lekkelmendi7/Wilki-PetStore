@@ -910,12 +910,12 @@ p.text-muted {
 .table-info,
 .table-info > td,
 .table-info > th {
-  --bs-table-bg: #9e3dd1;
-  background-color: #815aec;
+  --bs-table-bg: #eec50d;
+  background-color: #b98f02;
 }
 
 .table {
-  --bs-table-striped-bg: rgba(0 0 0 / 85%);
+  --bs-table-striped-bg: rgba(207, 186, 186, 0.158);
 }
 
 
@@ -924,23 +924,24 @@ p.text-muted {
   background: rgba(145, 120, 120, 0.8);
 
   > * {
-    --bs-table-color-state: #fdfdfd;
+    --bs-table-color-state: rgb(31, 29, 29);
   }
 }
 
 .table-hover > tbody > tr:hover > * {
-  --bs-table-bg-state: rgba(0 0 0 / 77%);
+  --bs-table-striped-bg: rgba(207, 186, 186, 0.158);
 }
 .table-hover > tbody > tr:nth-of-type(even) > * {
-  --bs-table-bg-state: rgba(0 0 0 / 80%);
-  color: white;
+  --bs-table-bg-state:rgba(207, 186, 186, 0.055);
+  color: black;
 }
 .table-hover > tbody > tr:nth-of-type(even):hover > * {
-  --bs-table-bg-state: rgba(0 0 0 / 77%);
+  --bs-table-color-state: rgb(31, 29, 29);
+
 }
 
 .table-hover > tbody > tr > * {
-  color: white;
+  color: black;
 }
 
 .btn-check:checked + .btn:not([class*='btn-']),

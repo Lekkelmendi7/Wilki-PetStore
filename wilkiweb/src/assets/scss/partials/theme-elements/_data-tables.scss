@@ -47,7 +47,7 @@
 .table-hover {
   tbody tr {
     &:hover {
-      background-color: transparentize($primary-color, 0.95);
+     background: rgb(31, 29, 29);
     }
   }
 }
