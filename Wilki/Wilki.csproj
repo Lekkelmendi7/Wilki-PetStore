@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\default.png" />
+    <Content Remove="wwwroot\default.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +21,7 @@
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
-    <None Include="wwwroot\default.png" />
+    <None Include="wwwroot\default.svg" />
   </ItemGroup>
 
   <ItemGroup>

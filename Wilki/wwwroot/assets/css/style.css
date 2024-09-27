@@ -2047,7 +2047,7 @@ p.text-muted {
 }
 
 .navbar-brand {
-  background: #3f4d67;
+    background: #075c94;
 }
 
 .pcoded-header:before,
@@ -2058,18 +2058,18 @@ p.text-muted {
 }
 
 .pcoded-navbar {
-  display: block;
-  z-index: 1029;
-  position: fixed;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  -webkit-box-shadow: 1px 0 20px 0 #3f4d67;
-          box-shadow: 1px 0 20px 0 #3f4d67;
-  width: 264px;
-  height: 100vh;
-  top: 0;
-  background: #3f4d67;
-  color: #a9b7d0;
+    display: block;
+    z-index: 1029;
+    position: fixed;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 1px 0 20px 0 #3f4d67;
+    box-shadow: 1px 0 20px 0 #3f4d67;
+    width: 264px;
+    height: 100vh;
+    top: 0;
+    background: #075c94;
+    color: #a9b7d0;
 }
 .pcoded-navbar ul {
   padding-left: 0;
@@ -2301,15 +2301,7 @@ p.text-muted {
 .pcoded-navbar.navbar-collapsed .header-logo {
   width: 80px;
 }
-.pcoded-navbar.navbar-collapsed .header-logo img {
-  -webkit-transform: rotateY(-90deg);
-          transform: rotateY(-90deg);
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  opacity: 0;
-  -webkit-transition: unset;
-  transition: unset;
-}
+
 .pcoded-navbar.navbar-collapsed .header-logo .logo-thumb {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
@@ -5371,12 +5363,12 @@ body.layout-6 .pcoded-navbar.menu-light .header-logo {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-body.layout-6 .pcoded-navbar .slimScrollDiv {
-  background: #3f4d67;
-  border-radius: 0 10px 0 0;
-  -webkit-box-shadow: 0 0 20px 0 #3f4d67;
-          box-shadow: 0 0 20px 0 #3f4d67;
-}
+    body.layout-6 .pcoded-navbar .slimScrollDiv {
+        background: #075c94;
+        border-radius: 0 10px 0 0;
+        -webkit-box-shadow: 0 0 20px 0 #3f4d67;
+        box-shadow: 0 0 20px 0 #3f4d67;
+    }
 body.layout-6.box-layout .pcoded-navbar .slimScrollDiv {
   border-radius: 10px 10px 0 0;
 }

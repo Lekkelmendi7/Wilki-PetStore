@@ -812,12 +812,7 @@
     .header-logo {
       width: $Menu-collapsed-width;
 
-      img {
-        transform: rotateY(-90deg);
-        transform-origin: 0 0;
-        opacity: 0;
-        transition: unset;
-      }
+      
 
       .logo-thumb {
         transform: rotateY(0deg);
