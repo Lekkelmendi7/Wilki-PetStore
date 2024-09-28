@@ -27,7 +27,7 @@ import { Link } from 'react-router-dom';
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
 const stripePromise = loadStripe(
-  'pk_test_51P6womKtaRnYlZxjkkG6JxfliwVl2PdZ4Jt9XdUQDuOqyhfZS5vAXPsi55xtdgoHcGxXtu3xGHvihAvBgeTxmqkZ00WCF43SgM'
+  'pk_test_51NNkyeKOmsM1eN2erV2tNQOiauaaRASakTBwmbyBdFkTkqxAJzFADEzcJIvmap0qPauXEpo6804Dysw7b873hyUL00t2oUTqE5'
 );
 
 export default function PaguajMeStripe({llojiTransportit, qmimiTransportit}) {

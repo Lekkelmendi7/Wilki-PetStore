@@ -120,7 +120,7 @@ builder.Services.AddScoped<IAdminLogService, AdminLogService>();
 
 var app = builder.Build();
 
-StripeConfiguration.ApiKey = "sk_test_51P6womKtaRnYlZxjj5ZKQQBsh6BP0F66jmJokn1Q4vSP6ex1poY5iMEt0nUWwUo4RKo7soyWLkvNN4tyry7PNM1m008EPxBTB5";
+StripeConfiguration.ApiKey = "sk_test_51NNkyeKOmsM1eN2e1sUQutHGDQAfDM67Zz6T1CMTsCYWihaGwk1PmjxP8Cezdx3r7PXnhm7b8RHKqQLZt2J1XEFc001efotwaF";
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
