@@ -7,13 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faXmark } from '@fortawesome/free-solid-svg-icons';
 import KontrolloAksesinNeFunksione from '../../../../components/KontrolliAksesit/KontrolloAksesinNeFunksione';
 
-function EditoPlanet(props) {
-  const [planet, setPlanet] = useState([]);
+function EditoMagazine(props) {
+  const [magazine, setMagazine] = useState([]);
+
+  const [publisher, setPublisher] = useState([]);
 
   const [perditeso, setPerditeso] = useState('');
-  const [planets, setPlanets] = useState([]);
-  const [kontrolloPlanet, setKontrolloPlanet] = useState(false);
-  const [konfirmoPlanet, setKonfirmoPlanet] = useState(false);
+  const [magazines, setMagazines] = useState([]);
+  const [kontrolloMagazine, setKontrolloMagazine] = useState(false);
+  const [konfirmoMagazine, setKonfirmoMagazine] = useState(false);
   const [fushatEZbrazura, setFushatEZbrazura] = useState(false);
 
   const getToken = localStorage.getItem('token');
@@ -25,39 +27,49 @@ function EditoPlanet(props) {
   };
 
   useEffect(() => {
-    const vendosPlanets = async () => {
+    const vendosMagazines = async () => {
       try {
-        const planets = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Planet/ShfaqPlanet`, authentikimi);
-        setPlanets(planets.data);
+        const magazines = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Magazine/ShfaqMagazine`, authentikimi);
+        setMagazines(magazines.data);
+        const publisher = await axios.get('https://localhost:7251/api/MbrojtjaEProjektit/Publisher/ShfaqPublisher', authentikimi);
+        setPublisher(publisher.data);
       } catch (err) {
         console.log(err);
       }
     };
 
-    vendosPlanets();
+    vendosMagazines();
   }, [perditeso]);
 
   useEffect(() => {
-    const shfaqPlanet = async () => {
+    const shfaqMagazine = async () => {
       try {
-        const planetKerkim = await axios.get(
-          `https://localhost:7251/api/MbrojtjaEProjektit/Planet/ShfaqPlanetNgaID?PlanetId=${props.id}`,
+        const magazineKerkim = await axios.get(
+          `https://localhost:7251/api/MbrojtjaEProjektit/Magazine/ShfaqMagazineNgaID?MagazineID=${props.id}`,
           authentikimi
         );
-        setPlanet(planetKerkim.data);
+        setMagazine(magazineKerkim.data);
+
+        console.log(magazine);
       } catch (err) {
         console.log(err);
       }
     };
 
-    shfaqPlanet();
+    shfaqMagazine();
   }, []);
 
   const handleChange = (propertyName) => (event) => {
-    setPlanet((prev) => ({
+    setMagazine((prev) => ({
       ...prev,
       [propertyName]: event.target.value
     }));
+
+    console.log(magazine);
+  };
+
+  const handlePublisherChange = (event) => {
+    setMagazine((prev) => ({ ...prev, publisherID: event }));
   };
 
   function isNullOrEmpty(value) {
@@ -67,13 +79,13 @@ function EditoPlanet(props) {
   function handleSubmit() {
     axios
       .put(
-        `https://localhost:7251/api/MbrojtjaEProjektit/Planet/PerditesoPlanet?PlanetId=${planet.planetID}`,
-        planet,
+        `https://localhost:7251/api/MbrojtjaEProjektit/Magazine/PerditesoMagazine?MagazineID=${magazine.magazineID}`,
+        magazine,
         authentikimi
       )
       .then((x) => {
         props.setTipiMesazhit('success');
-        props.setPershkrimiMesazhit('Planet u Perditesua me sukses!');
+        props.setPershkrimiMesazhit('Magazine u Perditesua me sukses!');
         props.perditesoTeDhenat();
         props.largo();
         props.shfaqmesazhin();
@@ -81,21 +93,23 @@ function EditoPlanet(props) {
       .catch((error) => {
         console.error('Error:', error);
         props.setTipiMesazhit('danger');
-        props.setPershkrimiMesazhit('Ndodhi nje gabim gjate perditesimit te planet!');
+        props.setPershkrimiMesazhit('Ndodhi nje gabim gjate perditesimit te magazine!');
         props.perditesoTeDhenat();
         props.shfaqmesazhin();
       });
   }
 
   const handleKontrolli = () => {
-    if (isNullOrEmpty(planet.name) || isNullOrEmpty(planet.type)) {
+    if (isNullOrEmpty(magazine.magazineName) || magazine.issueNumber < 0  || isNullOrEmpty(magazine.publisherID)) {
       setFushatEZbrazura(true);
     } else {
       if (
-        konfirmoPlanet == false &&
-        planets.filter((item) => item.name == planet.name && item.type == planet.type).length !== 0
+        konfirmoMagazine == false &&
+        magazines.filter(
+          (item) => item.magazineName === magazine.magazineName && item.issueNumber == magazine.issueNumber && item.publisherID == magazine.publisherID
+        ).length !== 0
       ) {
-        setKontrolloPlanet(true);
+        setKontrolloMagazine(true);
       } else {
         handleSubmit();
       }
@@ -130,18 +144,18 @@ function EditoPlanet(props) {
           </Modal.Footer>
         </Modal>
       )}
-      {kontrolloPlanet && (
-        <Modal size="sm" show={kontrolloPlanet} onHide={() => setKontrolloPlanet(false)}>
+      {kontrolloMagazine && (
+        <Modal size="sm" show={kontrolloMagazine} onHide={() => setKontrolloMagazine(false)}>
           <Modal.Header closeButton>
             <Modal.Title as="h6">Konfirmo vendosjen</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <span style={{ fontSize: '10pt' }}>Ky Planet ekziston ne sistem!</span>
+            <span style={{ fontSize: '10pt' }}>Ky Magazine ekziston ne sistem!</span>
             <br />
             <strong style={{ fontSize: '10pt' }}>A jeni te sigurt qe deshironi te vazhdoni?</strong>
           </Modal.Body>
           <Modal.Footer>
-            <Button size="sm" variant="danger" onClick={() => setKontrolloPlanet(false)}>
+            <Button size="sm" variant="danger" onClick={() => setKontrolloMagazine(false)}>
               Korrigjo <FontAwesomeIcon icon={faXmark} />
             </Button>
             <Button
@@ -158,23 +172,58 @@ function EditoPlanet(props) {
       )}
       <Modal className="modalEditShto" show={true} onHide={() => props.largo()}>
         <Modal.Header closeButton>
-          <Modal.Title>Edito Planet</Modal.Title>
+          <Modal.Title>Edito Magazine</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Planet ID</Form.Label>
-              <Form.Control value={planet.planetID} disabled />
+              <Form.Label>Magazine ID</Form.Label>
+              <Form.Control value={magazine.magazineID} disabled />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>
-                Name<span style={{ color: 'red' }}>*</span>
+                Title<span style={{ color: 'red' }}>*</span>
               </Form.Label>
-              <Form.Control onChange={handleChange('name')} value={planet.name} type="text" placeholder="Name" autoFocus />
+              <Form.Control
+                onChange={handleChange('magazineName')}
+                value={magazine.magazineName}
+                type="text"
+                placeholder="magazineName"
+                autoFocus
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Type<span style={{ color: 'red' }}>*</span></Form.Label>
-              <Form.Control onChange={handleChange('type')} value={planet.type} as="textarea" placeholder="Type" />
+              <Form.Label>
+                IssueNumber<span style={{ color: 'red' }}>*</span>
+              </Form.Label>
+              <Form.Control
+                onChange={handleChange('issueNumber')}
+                value={magazine.issueNumber}
+                type="text"
+                placeholder="issueNumber"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Publisher</Form.Label>
+              <select
+                placeholder="Publisher"
+                className="form-select"
+                value={magazine.publisherID}
+                onChange={(e) => handlePublisherChange(e.target.value)}
+              >
+                <option selected disabled hidden>
+                  {magazine.publisher && magazine.publisher.publisherName} - {magazine.publisher && magazine.publisher.location}
+                </option>
+                {publisher &&
+                  publisher.map((item) => {
+                    return (
+                      <option key={item.publisherID} value={item.publisherID}>
+                        {item.publisherName} - {item.location}
+                      </option>
+                    );
+                  })}
+              </select>
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -183,7 +232,7 @@ function EditoPlanet(props) {
             Anulo <FontAwesomeIcon icon={faXmark} />
           </Button>
           <Button className="Butoni" onClick={handleKontrolli}>
-            Edito Planet <FontAwesomeIcon icon={faPenToSquare} />
+            Edito Magazine <FontAwesomeIcon icon={faPenToSquare} />
           </Button>
         </Modal.Footer>
       </Modal>
@@ -191,4 +240,4 @@ function EditoPlanet(props) {
   );
 }
 
-export default EditoPlanet;
+export default EditoMagazine;

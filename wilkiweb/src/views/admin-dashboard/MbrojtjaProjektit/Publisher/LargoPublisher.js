@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBan, faXmark } from '@fortawesome/free-solid-svg-icons';
 import KontrolloAksesinNeFunksione from '../../../../components/KontrolliAksesit/KontrolloAksesinNeFunksione';
 
-function LargoPlanet(props) {
+function LargoPublisher(props) {
   const getToken = localStorage.getItem('token');
 
   const authentikimi = {
@@ -16,9 +16,9 @@ function LargoPlanet(props) {
 
   async function handleSubmit() {
     try {
-      await axios.delete(`https://localhost:7251/api/MbrojtjaEProjektit/Planet/FshijPlanet?PlanetId=${props.id}`, authentikimi);
+      await axios.delete(`https://localhost:7251/api/MbrojtjaEProjektit/Publisher/FshijPublisher?PublisherId=${props.id}`, authentikimi);
       props.setTipiMesazhit('success');
-      props.setPershkrimiMesazhit('Planet u fshi me sukses!');
+      props.setPershkrimiMesazhit('Publisher u fshi me sukses!');
       props.perditesoTeDhenat();
       props.largo();
       props.shfaqmesazhin();
@@ -41,17 +41,17 @@ function LargoPlanet(props) {
       />
       <Modal show={true} onHide={() => props.largo()}>
         <Modal.Header closeButton>
-          <Modal.Title style={{ color: 'red' }}>Largo Planet</Modal.Title>
+          <Modal.Title style={{ color: 'red' }}>Largo Publisher</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h6>A jeni te sigurt qe deshironi ta fshini kete planet?</h6>
+          <h6>A jeni te sigurt qe deshironi ta fshini kete Publisher?</h6>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={() => props.largo()}>
             Anulo <FontAwesomeIcon icon={faXmark} />
           </Button>
           <Button variant="danger" onClick={handleSubmit}>
-            Largo Planet <FontAwesomeIcon icon={faBan} />
+            Largo Publisher <FontAwesomeIcon icon={faBan} />
           </Button>
         </Modal.Footer>
       </Modal>
@@ -59,4 +59,4 @@ function LargoPlanet(props) {
   );
 }
 
-export default LargoPlanet;
+export default LargoPublisher;

@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 import KontrolloAksesinNeFunksione from '../../../../components/KontrolliAksesit/KontrolloAksesinNeFunksione';
 
-function ShtoPlanet(props) {
-  const [name, setName] = useState('');
-  const [type, setType] = useState('');
+function ShtoPublisher(props) {
+  const [publisherName, setPublisherName] = useState('');
+  const [location, setLocation] = useState('');
 
   const [perditeso, setPerditeso] = useState('');
-  const [planet, setPlanet] = useState([]);
-  const [kontrolloPlanet, setKontrolloPlanet] = useState(false);
-  const [konfirmoPlanet, setKofirmoPlanet] = useState(false);
+  const [publisher, setPublisher] = useState([]);
+  const [kontrolloPublisher, setKontrolloPublisher] = useState(false);
+  const [konfirmoPublisher, setKofirmoPublisher] = useState(false);
   const [fushatEZbrazura, setFushatEZbrazura] = useState(false);
 
   const getToken = localStorage.getItem('token');
@@ -26,17 +26,17 @@ function ShtoPlanet(props) {
   };
 
   useEffect(() => {
-    const vendosplanet = async () => {
+    const vendospublisher = async () => {
       try {
-        const planet = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Planet/ShfaqPlanet`, authentikimi);
-        setPlanet(planet.data);
-        console.log(planet.data);
+        const publisher = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Publisher/ShfaqPublisher`, authentikimi);
+        setPublisher(publisher.data);
+        console.log(publisher.data);
       } catch (err) {
         console.log(err);
       }
     };
 
-    vendosplanet();
+    vendospublisher();
   }, [perditeso]);
 
   const handleChange = (setState) => (event) => {
@@ -50,16 +50,16 @@ function ShtoPlanet(props) {
   function handleSubmit() {
     axios
       .post(
-        'https://localhost:7251/api/MbrojtjaEProjektit/Planet/ShtoPlanet',
+        'https://localhost:7251/api/MbrojtjaEProjektit/Publisher/ShtoPublisher',
         {
-          name: name,
-          type: type
+          publisherName: publisherName,
+          location: location
         },
         authentikimi
       )
       .then((response) => {
         props.setTipiMesazhit('success');
-        props.setPershkrimiMesazhit('Planet u insertua me sukses!');
+        props.setPershkrimiMesazhit('Publisher u insertua me sukses!');
         props.perditesoTeDhenat();
         props.largo();
         props.shfaqmesazhin();
@@ -70,11 +70,11 @@ function ShtoPlanet(props) {
   }
 
   const handleKontrolli = () => {
-    if (isNullOrEmpty(name) || isNullOrEmpty(type)) {
+    if (isNullOrEmpty(publisherName) || isNullOrEmpty(location)) {
       setFushatEZbrazura(true);
     } else {
-      if (konfirmoPlanet == false && planet.filter((item) => item.name == name && item.type == type).length !== 0) {
-        setKontrolloPlanet(true);
+      if (konfirmoPublisher == false && publisher.filter((item) => item.publisherName == publisherName && item.location == location).length !== 0) {
+        setKontrolloPublisher(true);
       } else {
         handleSubmit();
       }
@@ -109,18 +109,18 @@ function ShtoPlanet(props) {
           </Modal.Footer>
         </Modal>
       )}
-      {kontrolloPlanet && (
-        <Modal size="sm" show={kontrolloPlanet} onHide={() => setKontrolloPlanet(false)}>
+      {kontrolloPublisher && (
+        <Modal size="sm" show={kontrolloPublisher} onHide={() => setKontrolloPublisher(false)}>
           <Modal.Header closeButton>
             <Modal.Title as="h6">Konfirmo vendosjen</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <span style={{ fontSize: '10pt' }}>Ky Planet ekziston ne sistem!</span>
+            <span style={{ fontSize: '10pt' }}>Ky Publisher ekziston ne sistem!</span>
             <br />
             <strong style={{ fontSize: '10pt' }}>A jeni te sigurt qe deshironi te vazhdoni?</strong>
           </Modal.Body>
           <Modal.Footer>
-            <Button size="sm" variant="danger" onClick={() => setKontrolloPlanet(false)}>
+            <Button size="sm" variant="danger" onClick={() => setKontrolloPublisher(false)}>
               Korrigjo <FontAwesomeIcon icon={faXmark} />
             </Button>
             <Button
@@ -137,21 +137,21 @@ function ShtoPlanet(props) {
       )}
       <Modal className="modalEditShto" show={props.shfaq} onHide={() => props.largo()}>
         <Modal.Header closeButton>
-          <Modal.Title>Shto Planet</Modal.Title>
+          <Modal.Title>Shto Publisher</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>
-                Name<span style={{ color: 'red' }}>*</span>
+                PublisherName<span style={{ color: 'red' }}>*</span>
               </Form.Label>
-              <Form.Control onChange={handleChange(setName)} value={name} type="text" placeholder="Name" autoFocus />
+              <Form.Control onChange={handleChange(setPublisherName)} value={publisherName} type="text" placeholder="PublisherName" autoFocus />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>
-                Type<span style={{ color: 'red' }}>*</span>
+                Location<span style={{ color: 'red' }}>*</span>
               </Form.Label>
-              <Form.Control onChange={handleChange(setType)} value={type} type="text" placeholder="Type" />
+              <Form.Control onChange={handleChange(setLocation)} value={location} type="text" placeholder="Location" />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -160,7 +160,7 @@ function ShtoPlanet(props) {
             Anulo <FontAwesomeIcon icon={faXmark} />
           </Button>
           <Button className="Butoni" onClick={handleKontrolli}>
-            Shto Planet <FontAwesomeIcon icon={faPlus} />
+            Shto Publisher <FontAwesomeIcon icon={faPlus} />
           </Button>
         </Modal.Footer>
       </Modal>
@@ -168,4 +168,4 @@ function ShtoPlanet(props) {
   );
 }
 
-export default ShtoPlanet;
+export default ShtoPublisher;

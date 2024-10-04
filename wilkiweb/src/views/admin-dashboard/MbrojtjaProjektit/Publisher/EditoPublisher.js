@@ -7,15 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faXmark } from '@fortawesome/free-solid-svg-icons';
 import KontrolloAksesinNeFunksione from '../../../../components/KontrolliAksesit/KontrolloAksesinNeFunksione';
 
-function EditoSatellite(props) {
-  const [satellite, setSatellite] = useState([]);
-
-  const [planet, setPlanet] = useState([]);
+function EditoPublisher(props) {
+  const [publisher, setPublisher] = useState([]);
 
   const [perditeso, setPerditeso] = useState('');
-  const [satellites, setSatellites] = useState([]);
-  const [kontrolloSatellite, setKontrolloSatellite] = useState(false);
-  const [konfirmoSatellite, setKonfirmoSatellite] = useState(false);
+  const [publishers, setPublishers] = useState([]);
+  const [kontrolloPublisher, setKontrolloPublisher] = useState(false);
+  const [konfirmoPublisher, setKonfirmoPublisher] = useState(false);
   const [fushatEZbrazura, setFushatEZbrazura] = useState(false);
 
   const getToken = localStorage.getItem('token');
@@ -27,49 +25,39 @@ function EditoSatellite(props) {
   };
 
   useEffect(() => {
-    const vendosSatellites = async () => {
+    const vendosPublishers = async () => {
       try {
-        const satellites = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Satellite/ShfaqSatellite`, authentikimi);
-        setSatellites(satellites.data);
-        const planet = await axios.get('https://localhost:7251/api/MbrojtjaEProjektit/Planet/ShfaqPlanet', authentikimi);
-        setPlanet(planet.data);
+        const publishers = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Publisher/ShfaqPublisher`, authentikimi);
+        setPublishers(publishers.data);
       } catch (err) {
         console.log(err);
       }
     };
 
-    vendosSatellites();
+    vendosPublishers();
   }, [perditeso]);
 
   useEffect(() => {
-    const shfaqSatellite = async () => {
+    const shfaqPublisher = async () => {
       try {
-        const satelliteKerkim = await axios.get(
-          `https://localhost:7251/api/MbrojtjaEProjektit/Satellite/ShfaqSatelliteNgaID?SatelliteID=${props.id}`,
+        const publisherKerkim = await axios.get(
+          `https://localhost:7251/api/MbrojtjaEProjektit/Publisher/ShfaqPublisherNgaID?PublisherId=${props.id}`,
           authentikimi
         );
-        setSatellite(satelliteKerkim.data);
-
-        console.log(satellite);
+        setPublisher(publisherKerkim.data);
       } catch (err) {
         console.log(err);
       }
     };
 
-    shfaqSatellite();
+    shfaqPublisher();
   }, []);
 
   const handleChange = (propertyName) => (event) => {
-    setSatellite((prev) => ({
+    setPublisher((prev) => ({
       ...prev,
       [propertyName]: event.target.value
     }));
-
-    console.log(satellite);
-  };
-
-  const handlePlanetChange = (event) => {
-    setSatellite((prev) => ({ ...prev, planetID: event }));
   };
 
   function isNullOrEmpty(value) {
@@ -79,13 +67,13 @@ function EditoSatellite(props) {
   function handleSubmit() {
     axios
       .put(
-        `https://localhost:7251/api/MbrojtjaEProjektit/Satellite/PerditesoSatellite?SatelliteID=${satellite.satelliteID}`,
-        satellite,
+        `https://localhost:7251/api/MbrojtjaEProjektit/Publisher/PerditesoPublisher?PublisherId=${publisher.publisherID}`,
+        publisher,
         authentikimi
       )
       .then((x) => {
         props.setTipiMesazhit('success');
-        props.setPershkrimiMesazhit('Satellite u Perditesua me sukses!');
+        props.setPershkrimiMesazhit('Publisher u Perditesua me sukses!');
         props.perditesoTeDhenat();
         props.largo();
         props.shfaqmesazhin();
@@ -93,23 +81,21 @@ function EditoSatellite(props) {
       .catch((error) => {
         console.error('Error:', error);
         props.setTipiMesazhit('danger');
-        props.setPershkrimiMesazhit('Ndodhi nje gabim gjate perditesimit te satellite!');
+        props.setPershkrimiMesazhit('Ndodhi nje gabim gjate perditesimit te publisher!');
         props.perditesoTeDhenat();
         props.shfaqmesazhin();
       });
   }
 
   const handleKontrolli = () => {
-    if (isNullOrEmpty(satellite.name) || isNullOrEmpty(satellite.planetID)) {
+    if (isNullOrEmpty(publisher.publisherName) || isNullOrEmpty(publisher.location)) {
       setFushatEZbrazura(true);
     } else {
       if (
-        konfirmoSatellite == false &&
-        satellites.filter(
-          (item) => item.name === satellite.name && item.planetID == satellite.planetID
-        ).length !== 0
+        konfirmoPublisher == false &&
+        publishers.filter((item) => item.publisherName == publisher.publisherName && item.location == publisher.location).length !== 0
       ) {
-        setKontrolloSatellite(true);
+        setKontrolloPublisher(true);
       } else {
         handleSubmit();
       }
@@ -138,24 +124,24 @@ function EditoSatellite(props) {
             </strong>
           </Modal.Body>
           <Modal.Footer>
-            <Button size="sm" onClick={() => setFushatEZbrazura(false)} variant="secondary">
+            <Button size="sm" onClick={() => setFushatEZbrazura(false)} variant="danger">
               Mbylle <FontAwesomeIcon icon={faXmark} />
             </Button>
           </Modal.Footer>
         </Modal>
       )}
-      {kontrolloSatellite && (
-        <Modal size="sm" show={kontrolloSatellite} onHide={() => setKontrolloSatellite(false)}>
+      {kontrolloPublisher && (
+        <Modal size="sm" show={kontrolloPublisher} onHide={() => setKontrolloPublisher(false)}>
           <Modal.Header closeButton>
             <Modal.Title as="h6">Konfirmo vendosjen</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <span style={{ fontSize: '10pt' }}>Ky Satellite ekziston ne sistem!</span>
+            <span style={{ fontSize: '10pt' }}>Ky Publisher ekziston ne sistem!</span>
             <br />
             <strong style={{ fontSize: '10pt' }}>A jeni te sigurt qe deshironi te vazhdoni?</strong>
           </Modal.Body>
           <Modal.Footer>
-            <Button size="sm" variant="secondary" onClick={() => setKontrolloSatellite(false)}>
+            <Button size="sm" variant="danger" onClick={() => setKontrolloPublisher(false)}>
               Korrigjo <FontAwesomeIcon icon={faXmark} />
             </Button>
             <Button
@@ -172,55 +158,32 @@ function EditoSatellite(props) {
       )}
       <Modal className="modalEditShto" show={true} onHide={() => props.largo()}>
         <Modal.Header closeButton>
-          <Modal.Title>Edito Satellite</Modal.Title>
+          <Modal.Title>Edito Publisher</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Satellite ID</Form.Label>
-              <Form.Control value={satellite.satelliteID} disabled />
+              <Form.Label>Publisher ID</Form.Label>
+              <Form.Control value={publisher.publisherID} disabled />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>
-                Name<span style={{ color: 'red' }}>*</span>
+                PublisherName<span style={{ color: 'red' }}>*</span>
               </Form.Label>
-              <Form.Control
-                onChange={handleChange('name')}
-                value={satellite.name}
-                type="text"
-                placeholder="Name"
-                autoFocus
-              />
+              <Form.Control onChange={handleChange('publisherName')} value={publisher.publisherName} type="text" placeholder="Location" autoFocus />
             </Form.Group>
-            <Form.Group>
-              <Form.Label>Planet</Form.Label>
-              <select
-                placeholder="Planet"
-                className="form-select"
-                value={satellite.planetID}
-                onChange={(e) => handlePlanetChange(e.target.value)}
-              >
-                <option selected disabled hidden>
-                  {satellite.planet && satellite.planet.name} - {satellite.planet && satellite.planet.type}
-                </option>
-                {planet &&
-                  planet.map((item) => {
-                    return (
-                      <option key={item.planetID} value={item.planetID}>
-                        {item.name} - {item.type}
-                      </option>
-                    );
-                  })}
-              </select>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Location<span style={{ color: 'red' }}>*</span></Form.Label>
+              <Form.Control onChange={handleChange('location')} value={publisher.location} as="textarea" placeholder="Location" />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => props.largo()}>
+          <Button variant="danger" onClick={() => props.largo()}>
             Anulo <FontAwesomeIcon icon={faXmark} />
           </Button>
           <Button className="Butoni" onClick={handleKontrolli}>
-            Edito Satellite <FontAwesomeIcon icon={faPenToSquare} />
+            Edito Publisher <FontAwesomeIcon icon={faPenToSquare} />
           </Button>
         </Modal.Footer>
       </Modal>
@@ -228,4 +191,4 @@ function EditoSatellite(props) {
   );
 }
 
-export default EditoSatellite;
+export default EditoPublisher;

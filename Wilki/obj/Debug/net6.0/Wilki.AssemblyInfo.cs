@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wilki")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95ac4a2a40714c7b93f21331947aeb74b9de190a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90c6749d629d9329de08310e55ce7ca14eb38cbc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wilki")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wilki")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

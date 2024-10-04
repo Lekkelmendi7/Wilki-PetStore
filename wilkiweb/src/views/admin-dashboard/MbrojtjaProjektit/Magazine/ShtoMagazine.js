@@ -7,16 +7,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 import KontrolloAksesinNeFunksione from '../../../../components/KontrolliAksesit/KontrolloAksesinNeFunksione';
 
-function ShtoSatellite(props) {
-  const [name, setName] = useState('');
-  const [planetID, setPlanetID] = useState('');
+function ShtoMagazine(props) {
+  const [magazineName, setMagazineName] = useState('');
+  const [issueNumber, setIssueNumber] = useState('');
+  const [publisherID, setPublisherID] = useState('');
 
-  const [planet, setPlanet] = useState([]);
+  const [publisher, setPublisher] = useState([]);
 
   const [perditeso, setPerditeso] = useState('');
-  const [satellite, setSatellite] = useState([]);
-  const [kontrolloSatellite, setKontrolloSatellite] = useState(false);
-  const [konfirmoSatellite, setKonfirmoSatellite] = useState(false);
+  const [magazine, setMagazine] = useState([]);
+  const [kontrolloMagazine, setKontrolloMagazine] = useState(false);
+  const [konfirmoMagazine, setKonfirmoMagazine] = useState(false);
   const [fushatEZbrazura, setFushatEZbrazura] = useState(false);
 
   const getToken = localStorage.getItem('token');
@@ -28,26 +29,26 @@ function ShtoSatellite(props) {
   };
 
   useEffect(() => {
-    const vendosSatellite = async () => {
+    const vendosMagazine = async () => {
       try {
-        const satellite = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Satellite/ShfaqSatellite`, authentikimi);
-        setSatellite(satellite.data);
-        const planet = await axios.get('https://localhost:7251/api/MbrojtjaEProjektit/Planet/ShfaqPlanet', authentikimi);
-        setPlanet(planet.data);
+        const magazine = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Magazine/ShfaqMagazine`, authentikimi);
+        setMagazine(magazine.data);
+        const publisher = await axios.get('https://localhost:7251/api/MbrojtjaEProjektit/Publisher/ShfaqPublisher', authentikimi);
+        setPublisher(publisher.data);
       } catch (err) {
         console.log(err);
       }
     };
 
-    vendosSatellite();
+    vendosMagazine();
   }, [perditeso]);
 
   const handleChange = (setState) => (event) => {
     setState(event.target.value);
   };
 
-  const handlePlanetChange = (event) => {
-    setPlanetID(event);
+  const handlePublisherChange = (event) => {
+    setPublisherID(event);
   };
 
   function isNullOrEmpty(value) {
@@ -57,16 +58,17 @@ function ShtoSatellite(props) {
   function handleSubmit() {
     axios
       .post(
-        'https://localhost:7251/api/MbrojtjaEProjektit/Satellite/ShtoSatellite',
+        'https://localhost:7251/api/MbrojtjaEProjektit/Magazine/ShtoMagazine',
         {
-          name: name,
-          planetID: planetID
+          magazineName: magazineName,
+          issueNumber: issueNumber,
+          publisherID: publisherID
         },
         authentikimi
       )
       .then((response) => {
         props.setTipiMesazhit('success');
-        props.setPershkrimiMesazhit('Satellite u insertua me sukses!');
+        props.setPershkrimiMesazhit('Magazine u insertua me sukses!');
         props.perditesoTeDhenat();
         props.largo();
         props.shfaqmesazhin();
@@ -77,14 +79,14 @@ function ShtoSatellite(props) {
   }
 
   const handleKontrolli = () => {
-    if (isNullOrEmpty(name) || isNullOrEmpty(planetID)) {
+    if (isNullOrEmpty(magazineName) || isNullOrEmpty(issueNumber) || magazine.issueNumber < 0 || isNullOrEmpty(publisherID)) {
       setFushatEZbrazura(true);
     } else {
       if (
-        konfirmoSatellite == false &&
-        satellite.filter((item) => item.name === name && item.planetID == planetID).length !== 0
+        konfirmoMagazine == false &&
+        magazine.filter((item) => item.magazineName === magazineName && item.issueNumber === issueNumber && item.publisherID == publisherID).length !== 0
       ) {
-        setKontrolloSatellite(true);
+        setKontrolloMagazine(true);
       } else {
         handleSubmit();
       }
@@ -113,24 +115,24 @@ function ShtoSatellite(props) {
             </strong>
           </Modal.Body>
           <Modal.Footer>
-            <Button size="sm" onClick={() => setFushatEZbrazura(false)} variant="secondary">
+            <Button size="sm" onClick={() => setFushatEZbrazura(false)} variant="danger">
               Mbylle <FontAwesomeIcon icon={faXmark} />
             </Button>
           </Modal.Footer>
         </Modal>
       )}
-      {kontrolloSatellite && (
-        <Modal size="sm" show={kontrolloSatellite} onHide={() => setKontrolloSatellite(false)}>
+      {kontrolloMagazine && (
+        <Modal size="sm" show={kontrolloMagazine} onHide={() => setKontrolloMagazine(false)}>
           <Modal.Header closeButton>
             <Modal.Title as="h6">Konfirmo vendosjen</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <span style={{ fontSize: '10pt' }}>Ky Satellite ekziston ne sistem!</span>
+            <span style={{ fontSize: '10pt' }}>Ky Magazine ekziston ne sistem!</span>
             <br />
             <strong style={{ fontSize: '10pt' }}>A jeni te sigurt qe deshironi te vazhdoni?</strong>
           </Modal.Body>
           <Modal.Footer>
-            <Button size="sm" variant="secondary" onClick={() => setKontrolloSatellite(false)}>
+            <Button size="sm" variant="danger" onClick={() => setKontrolloMagazine(false)}>
               Korrigjo <FontAwesomeIcon icon={faXmark} />
             </Button>
             <Button
@@ -147,32 +149,38 @@ function ShtoSatellite(props) {
       )}
       <Modal className="modalEditShto" show={props.shfaq} onHide={() => props.largo()}>
         <Modal.Header closeButton>
-          <Modal.Title>Shto Satellite</Modal.Title>
+          <Modal.Title>Shto Magazine</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>
+                MagazineName<span style={{ color: 'red' }}>*</span>
+              </Form.Label>
+              <Form.Control onChange={handleChange(setMagazineName)} value={magazineName} type="text" placeholder="MagazineName" autoFocus />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>
-                Name<span style={{ color: 'red' }}>*</span>
+                IssueNumber<span style={{ color: 'red' }}>*</span>
               </Form.Label>
-              <Form.Control onChange={handleChange(setName)} value={name} type="text" placeholder="Name" autoFocus />
+              <Form.Control onChange={handleChange(setIssueNumber)} value={issueNumber} type="text" placeholder="IssueNumber" autoFocus />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Planet</Form.Label>
+              <Form.Label>Publisher</Form.Label>
               <select
-                placeholder="Planet"
+                placeholder="Publisher"
                 className="form-select"
-                value={planetID}
-                onChange={(e) => handlePlanetChange(e.target.value)}
+                value={publisherID}
+                onChange={(e) => handlePublisherChange(e.target.value)}
               >
                 <option defaultValue disabled value="">
-                  Zgjedhni Planet
+                  Zgjedhni Publisher
                 </option>
-                {planet &&
-                  planet.map((item) => {
+                {publisher &&
+                  publisher.map((item) => {
                     return (
-                      <option key={item.planetID} value={item.planetID}>
-                        {item.name} - {item.type}
+                      <option key={item.publisherID} value={item.publisherID}>
+                        {item.publisherName} - {item.location}
                       </option>
                     );
                   })}
@@ -181,11 +189,11 @@ function ShtoSatellite(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => props.largo()}>
+          <Button variant="danger" onClick={() => props.largo()}>
             Anulo <FontAwesomeIcon icon={faXmark} />
           </Button>
           <Button className="Butoni" onClick={handleKontrolli}>
-            Shto Satellite <FontAwesomeIcon icon={faPlus} />
+            Shto Magazine <FontAwesomeIcon icon={faPlus} />
           </Button>
         </Modal.Footer>
       </Modal>
@@ -193,4 +201,4 @@ function ShtoSatellite(props) {
   );
 }
 
-export default ShtoSatellite;
+export default ShtoMagazine;

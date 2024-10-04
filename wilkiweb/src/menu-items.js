@@ -150,16 +150,16 @@ const menuItems = {
           icon: 'feather icon-home',
           children: [
             {
-              id: 'Planet',
-              title: 'Planet',
+              id: 'Publisher',
+              title: 'Publisher',
               type: 'item',
-              url: '/admin/mbrojtjaeprojektit/planet'
+              url: '/admin/mbrojtjaeprojektit/publisher'
             },
             {
-              id: 'Satellite',
-              title: 'Satellite',
+              id: 'Magazine',
+              title: 'Magazine',
               type: 'item',
-              url: '/admin/mbrojtjaeprojektit/satellite'
+              url: '/admin/mbrojtjaeprojektit/magazine'
             },
             
             

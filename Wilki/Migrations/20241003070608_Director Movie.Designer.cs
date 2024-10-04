@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Wilki.Data;
 
@@ -11,9 +12,10 @@ using Wilki.Data;
 namespace Wilki.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241003070608_Director Movie")]
+    partial class DirectorMovie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -447,47 +449,93 @@ namespace Wilki.Migrations
                     b.ToTable("ListaEDeshirave");
                 });
 
-            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Magazine", b =>
+            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Director", b =>
                 {
-                    b.Property<int>("MagazineID")
+                    b.Property<int>("DirectorID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MagazineID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DirectorID"), 1L, 1);
 
-                    b.Property<int?>("IssueNumber")
+                    b.Property<int?>("BirthYear")
                         .HasColumnType("int");
 
-                    b.Property<string>("MagazineName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PublisherID")
-                        .HasColumnType("int");
+                    b.HasKey("DirectorID");
 
-                    b.HasKey("MagazineID");
-
-                    b.HasIndex("PublisherID");
-
-                    b.ToTable("Magazine");
+                    b.ToTable("Director");
                 });
 
-            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Publisher", b =>
+            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Movie", b =>
                 {
-                    b.Property<int>("PublisherID")
+                    b.Property<int>("MovieID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PublisherID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MovieID"), 1L, 1);
 
-                    b.Property<string>("Location")
+                    b.Property<int?>("DirectorID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReleaseYear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PublisherName")
+                    b.HasKey("MovieID");
+
+                    b.HasIndex("DirectorID");
+
+                    b.ToTable("Movie");
+                });
+
+            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Planet", b =>
+                {
+                    b.Property<int>("PlanetID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlanetID"), 1L, 1);
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PublisherID");
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Publisher");
+                    b.Property<string>("isDeleted")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PlanetID");
+
+                    b.ToTable("Planet");
+                });
+
+            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Satellite", b =>
+                {
+                    b.Property<int>("SatelliteID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SatelliteID"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PlanetID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("isDeleted")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SatelliteID");
+
+                    b.HasIndex("PlanetID");
+
+                    b.ToTable("Satellite");
                 });
 
             modelBuilder.Entity("Wilki.Models.Perdoruesi", b =>
@@ -1003,13 +1051,22 @@ namespace Wilki.Migrations
                     b.Navigation("Produkti");
                 });
 
-            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Magazine", b =>
+            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Movie", b =>
                 {
-                    b.HasOne("Wilki.Models.MbrojtjaEProjektit.Publisher", "Publisher")
+                    b.HasOne("Wilki.Models.MbrojtjaEProjektit.Director", "Director")
                         .WithMany()
-                        .HasForeignKey("PublisherID");
+                        .HasForeignKey("DirectorID");
 
-                    b.Navigation("Publisher");
+                    b.Navigation("Director");
+                });
+
+            modelBuilder.Entity("Wilki.Models.MbrojtjaEProjektit.Satellite", b =>
+                {
+                    b.HasOne("Wilki.Models.MbrojtjaEProjektit.Planet", "Planet")
+                        .WithMany()
+                        .HasForeignKey("PlanetID");
+
+                    b.Navigation("Planet");
                 });
 
             modelBuilder.Entity("Wilki.Models.Perdoruesi", b =>

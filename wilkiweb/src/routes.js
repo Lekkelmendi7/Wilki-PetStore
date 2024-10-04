@@ -194,13 +194,13 @@ const routes = [
       
       {
         exact: true,
-        path: '/admin/mbrojtjaeprojektit/planet',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Planet'))
+        path: '/admin/mbrojtjaeprojektit/publisher',
+        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Publisher'))
       },
       {
         exact: true,
-        path: '/admin/mbrojtjaeprojektit/satellite',
-        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Satellite'))
+        path: '/admin/mbrojtjaeprojektit/magazine',
+        element: lazy(() => import('./views/admin-dashboard/MbrojtjaProjektit/Magazine'))
       },
 
       {

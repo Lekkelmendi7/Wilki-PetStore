@@ -1,27 +1,24 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan, faPlus, faClose } from '@fortawesome/free-solid-svg-icons';
 import { TailSpin } from 'react-loader-spinner';
 import Tabela from '../../../../components/Tabela/Tabela';
 import Mesazhi from '../../../../components/Mesazhi';
-import { Helmet } from 'react-helmet';
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
-import ShtoPlanet from './ShtoPlanet';
-import EditoPlanet from './EditoPlanet';
-import LargoPlanet from './LargoPlanet';
+import ShtoMagazine from './ShtoMagazine';
+import EditoMagazine from './EditoMagazine';
+import LargoMagazine from './LargoMagazine';
 import KontrolloAksesinNeFaqe from '../../../../components/KontrolliAksesit/KontrolloAksesinNeFaqe';
 import Titulli from './../../../../components/Titulli';
-import { Description } from '@mui/icons-material';
+import { Button, Dropdown, DropdownButton, Form, InputGroup } from 'react-bootstrap';
 
-function Planet(props) {
-  const [planet, setPlanet] = useState([]);
+function Magazine(props) {
+  const [magazine, setMagazine] = useState([]);
   const [perditeso, setPerditeso] = useState('');
   const [shfaqMesazhin, setShfaqMesazhin] = useState(false);
   const [tipiMesazhit, setTipiMesazhit] = useState('');
   const [pershkrimiMesazhit, setPershkrimiMesazhit] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const [publisher, setPublisher] = useState('');
 
   const getToken = localStorage.getItem('token');
 
@@ -32,17 +29,20 @@ function Planet(props) {
   };
 
   useEffect(() => {
-    const ShfaqPlanet = async () => {
+    const shfaqMagazine = async () => {
       try {
         setLoading(true);
-        const Planet = await axios.get('https://localhost:7251/api/MbrojtjaEProjektit/Planet/ShfaqPlanet', authentikimi);
-        setPlanet(
-          Planet.data.map((k) => ({
-            ID: k.planetID,
-            Name: k.name,
-            Type: k.type
+        const magazine = await axios.get('https://localhost:7251/api/MbrojtjaEProjektit/Magazine/shfaqMagazine', authentikimi);
+        setMagazine(
+          magazine.data.map((k) => ({
+            ID: k.magazineID,
+            MagazineName: k.magazineName,
+            IssueNumber: parseInt(k.issueNumber),
+            Publisher: (k.publisher && k.publisher.publisherName) + ' - ' + (k.publisher && k.publisher.location)
           }))
         );
+        const publisher = await axios.get('https://localhost:7251/api/MbrojtjaEProjektit/Publisher/ShfaqPublisher', authentikimi);
+        setPublisher(publisher.data);
         setLoading(false);
       } catch (err) {
         console.log(err);
@@ -50,7 +50,7 @@ function Planet(props) {
       }
     };
 
-    ShfaqPlanet();
+    shfaqMagazine();
   }, [perditeso]);
 
   const [shto, setShto] = useState(false);
@@ -75,13 +75,32 @@ function Planet(props) {
   };
   const handleFshijMbyll = () => setFshij(false);
 
+  const handleKerkoNgaIDPrimare = async (publisherID) => {
+    try {
+      const Magazine = await axios.get(`https://localhost:7251/api/MbrojtjaEProjektit/Magazine/ShfaqMagazine`, authentikimi);
+      console.log(publisherID);
+      setMagazine(
+        Magazine.data
+          .filter((item) => item.publisherID == publisherID)
+          .map((k) => ({
+            ID: k.magazineID,
+            MagazineName: k.magazineName,
+            IssueNumber: parseInt(k.issueNumber),
+            Publisher: (k.publisher && k.publisher.publisherName) + ' - ' + (k.publisher && k.publisher.location)
+          }))
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <KontrolloAksesinNeFaqe vetemAdmin />
-      <Titulli titulli={'Planet'} />
+      <Titulli titulli={'Magazine'} />
       {shfaqMesazhin && <Mesazhi setShfaqMesazhin={setShfaqMesazhin} pershkrimi={pershkrimiMesazhit} tipi={tipiMesazhit} />}
       {shto && (
-        <ShtoPlanet
+        <ShtoMagazine
           shfaq={handleShow}
           largo={handleClose}
           shfaqmesazhin={() => setShfaqMesazhin(true)}
@@ -92,7 +111,7 @@ function Planet(props) {
       )}
       {shfaqMesazhin && <Mesazhi setShfaqMesazhin={setShfaqMesazhin} pershkrimi={pershkrimiMesazhit} tipi={tipiMesazhit} />}
       {edito && (
-        <EditoPlanet
+        <EditoMagazine
           largo={handleEditoMbyll}
           id={id}
           shfaqmesazhin={() => setShfaqMesazhin(true)}
@@ -102,7 +121,7 @@ function Planet(props) {
         />
       )}
       {fshij && (
-        <LargoPlanet
+        <LargoMagazine
           largo={handleFshijMbyll}
           id={id}
           shfaqmesazhin={() => setShfaqMesazhin(true)}
@@ -126,9 +145,31 @@ function Planet(props) {
         </div>
       ) : (
         <>
+          <InputGroup className="mb-3">
+            <DropdownButton
+              variant="outline-danger"
+              title="Zgjedhni Publisher"
+              id="input-group-dropdown-2"
+              align="end"
+              onSelect={handleKerkoNgaIDPrimare}
+            >
+              {publisher &&
+                publisher.map((item) => {
+                  return (
+                    <Dropdown.Item key={item.publisherID} eventKey={item.publisherID}>
+                      {item.publisherName} - {item.location}
+                    </Dropdown.Item>
+                  );
+                })}
+            </DropdownButton>
+            <Button variant="outline-danger" onClick={() => setPerditeso(Date.now())}>
+              Pastro Filtrat
+            </Button>
+          </InputGroup>
+
           <Tabela
-            data={planet}
-            tableName="Lista e Planet"
+            data={magazine}
+            tableName="Lista e Magazine"
             kaButona
             funksionButonEdit={(e) => handleEdito(e)}
             funksionButonShto={() => handleShow()}
@@ -140,4 +181,4 @@ function Planet(props) {
   );
 }
 
-export default Planet;
+export default Magazine;
